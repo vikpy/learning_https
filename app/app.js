@@ -1,9 +1,15 @@
-import http from 'http';  
-import express from 'express';  
+'use strict';
+
+
+//import http from 'http';  
+//import express from 'express';  
+
+const https =  require('https') ;
+const express = require('express') ; 
 var app = express();  
 const httpsPort = 1234;  
-import { createServer } from 'https';  
-import { readFileSync } from 'fs';  
+//import { createServer } from 'https';  
+//import { readFileSync } from 'fs';  
 
 
 var options = {  
@@ -12,7 +18,7 @@ var options = {
 };  
 //console.log("KEY: ", options.key)  
 //console.log("CERT: ", options.cert)  
-const Server = createServer(options, app).listen(httpsPort, () => {  
+const Server = https.createServer(options, app).listen(httpsPort, () => {  
     console.log(`Server listening on :${httpsPort}`);  
 });  
 
